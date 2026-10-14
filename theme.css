@@ -1,0 +1,271 @@
+/* Grandview — large-print reading for Obsidian
+   slug: reading-grandview   family: reading   modes: light, dark
+   Original CSS, MIT. System fonts only. No network assets, no @import. */
+
+.theme-light,
+.theme-dark {
+  --font-text-theme: Verdana, Tahoma, "Helvetica Neue", Arial, sans-serif;
+  --font-interface-theme: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-monospace-theme: Menlo, "Courier New", monospace;
+  --font-weight: 400;
+  --bold-weight: 700;
+  --bold-modifier: 200;
+  --line-height-normal: 1.9;
+  --line-height-tight: 1.4;
+  --p-spacing: 1.15em;
+  --heading-spacing: 1.6em;
+  --h1-size: 2.3em;   --h2-size: 1.8em;   --h3-size: 1.5em;
+  --h4-size: 1.28em;  --h5-size: 1.14em;  --h6-size: 1.04em;
+  --h1-weight: 700;   --h2-weight: 700;   --h3-weight: 700;
+  --h4-weight: 700;   --h5-weight: 700;   --h6-weight: 700;
+  --h1-line-height: 1.28; --h2-line-height: 1.32; --h3-line-height: 1.35;
+  --h1-font: var(--font-text-theme); --h2-font: var(--font-text-theme);
+  --h3-font: var(--font-text-theme);
+  --file-line-width: 38rem;
+  --list-indent: 2em;
+  --list-spacing: 0.4em;
+  --checkbox-size: 22px;
+  --checkbox-radius: 5px;
+  --callout-radius: 6px;
+  --callout-border-width: 2px;
+  --callout-border-opacity: 1;
+  --callout-padding: 1em 1.15em;
+  --callout-title-size: 1.05em;
+  --callout-content-padding: 0.4em 0 0;
+  --table-border-color: var(--background-modifier-border);
+  --table-border-width: 1px;
+  --table-text-size: 1.02em;
+  --table-line-height: 1.6;
+  --code-size: 0.96em;
+  --code-background: var(--background-secondary);
+  --tag-radius: 6px;
+  --tag-size: 0.95em;
+  --radius-s: 4px;
+  --radius-m: 6px;
+  --divider-color: var(--background-modifier-border);
+  --divider-width: 2px;
+  --tab-radius: 6px;
+  --scrollbar-width: 14px;
+}
+
+.theme-light {
+  --color-base-00: #fcfcfa; --color-base-05: #f8f8f6; --color-base-10: #f3f3f1;
+  --color-base-20: #eaeae8; --color-base-25: #dfdfdd; --color-base-30: #d0d0ce;
+  --color-base-35: #bebebc; --color-base-40: #a6a6a4; --color-base-50: #87878a;
+  --color-base-60: #66666a; --color-base-70: #4c4c4e; --color-base-100: #111111;
+  --accent-h: 220; --accent-s: 87%; --accent-l: 30%;
+  --background-primary: #fcfcfa;
+  --background-primary-alt: #f8f8f6;
+  --background-secondary: #f1f1ef;
+  --background-secondary-alt: #eaeae8;
+  --background-modifier-border: #c4c4c2;
+  --background-modifier-border-hover: #a6a6a4;
+  --background-modifier-border-focus: #0a3d91;
+  --background-modifier-hover: rgba(10, 61, 145, 0.08);
+  --background-modifier-active-hover: rgba(10, 61, 145, 0.15);
+  --background-modifier-form-field: #ffffff;
+  --text-normal: #111111; --text-muted: #4c4c4e; --text-faint: #76767a;
+  --text-accent: #0a3d91; --text-accent-hover: #072c6b;
+  --text-on-accent: #ffffff;
+  --text-selection: rgba(10, 61, 145, 0.2);
+  --text-highlight-bg: rgba(250, 214, 90, 0.55);
+  --interactive-normal: #efefed; --interactive-hover: #e4e4e2;
+  --interactive-accent: #0a3d91; --interactive-accent-hover: #072c6b;
+  --link-color: #0a3d91; --link-color-hover: #072c6b;
+  --link-external-color: #7a1f6b; --link-external-color-hover: #5c1750;
+  --link-unresolved-color: #76767a;
+  --tag-background: #e6e6e4; --tag-color: #2a2a2c;
+  --tag-background-hover: #dcdcda;
+  --code-normal: #141414;
+  --code-background: #f1f1ef;
+  --code-comment: #76767a; --code-keyword: #0a3d91; --code-string: #2e6b1f;
+  --code-function: #6b2a7a; --code-value: #8a4a12; --code-tag: #a03418;
+  --tab-text-color: #4c4c4e; --tab-text-color-active: #111111;
+  --tab-text-color-focused: #111111; --tab-text-color-focused-active: #111111;
+  --tab-background-active: #ffffff;
+  --tab-outline-color: #c4c4c2;
+  --nav-item-color: #333335; --nav-item-color-hover: #111111;
+  --nav-item-color-active: #0a3d91; --nav-item-background-hover: rgba(10, 61, 145, 0.08);
+  --nav-item-background-active: rgba(10, 61, 145, 0.15);
+  --scrollbar-bg: transparent;
+  --scrollbar-thumb-bg: rgba(17, 17, 17, 0.26);
+  --scrollbar-active-thumb-bg: rgba(17, 17, 17, 0.45);
+}
+
+.theme-dark {
+  --color-base-00: #0f1113; --color-base-05: #131518; --color-base-10: #17191c;
+  --color-base-20: #1e2125; --color-base-25: #25282d; --color-base-30: #2e3238;
+  --color-base-35: #3c4149; --color-base-40: #4f545c; --color-base-50: #6b7078;
+  --color-base-60: #9aa0a8; --color-base-70: #b9bfc6; --color-base-100: #f3f3f1;
+  --accent-h: 218; --accent-s: 100%; --accent-l: 76%;
+  --background-primary: #0f1113;
+  --background-primary-alt: #131518;
+  --background-secondary: #191c1f;
+  --background-secondary-alt: #1e2125;
+  --background-modifier-border: #3c4149;
+  --background-modifier-border-hover: #565c65;
+  --background-modifier-border-focus: #8ab6ff;
+  --background-modifier-hover: rgba(138, 182, 255, 0.1);
+  --background-modifier-active-hover: rgba(138, 182, 255, 0.18);
+  --background-modifier-form-field: #131518;
+  --text-normal: #f3f3f1; --text-muted: #c2c7cd; --text-faint: #8f959d;
+  --text-accent: #8ab6ff; --text-accent-hover: #b0cdff;
+  --text-on-accent: #0b1220;
+  --text-selection: rgba(138, 182, 255, 0.28);
+  --text-highlight-bg: rgba(250, 214, 90, 0.32);
+  --interactive-normal: #1e2125; --interactive-hover: #282d33;
+  --interactive-accent: #8ab6ff; --interactive-accent-hover: #b0cdff;
+  --link-color: #8ab6ff; --link-color-hover: #b0cdff;
+  --link-external-color: #e0a3e8; --link-external-color-hover: #efc6f4;
+  --link-unresolved-color: #8f959d;
+  --tag-background: #25282d; --tag-color: #d4d8dd;
+  --tag-background-hover: #31363c;
+  --code-normal: #eef0f2;
+  --code-background: #191c1f;
+  --code-comment: #8f959d; --code-keyword: #8ab6ff; --code-string: #a7d08a;
+  --code-function: #d3a7e0; --code-value: #e8c48a; --code-tag: #f0a08a;
+  --tab-text-color: #c2c7cd; --tab-text-color-active: #f3f3f1;
+  --tab-text-color-focused: #f3f3f1; --tab-text-color-focused-active: #ffffff;
+  --tab-background-active: #131518;
+  --tab-outline-color: #3c4149;
+  --nav-item-color: #ccd1d7; --nav-item-color-hover: #f3f3f1;
+  --nav-item-color-active: #b0cdff; --nav-item-background-hover: rgba(138, 182, 255, 0.1);
+  --nav-item-background-active: rgba(138, 182, 255, 0.18);
+  --scrollbar-bg: transparent;
+  --scrollbar-thumb-bg: rgba(243, 243, 241, 0.26);
+  --scrollbar-active-thumb-bg: rgba(243, 243, 241, 0.45);
+}
+
+/* ---------- large-print reading scale (scales with the user font size) ---------- */
+.markdown-preview-view .markdown-rendered {
+  font-size: calc(var(--font-text-size) * 1.22);
+  line-height: var(--line-height-normal);
+  letter-spacing: 0.01em;
+  word-spacing: 0.06em;
+}
+.markdown-source-view.mod-cm6 .cm-content {
+  font-size: calc(var(--font-text-size) * 1.22);
+  line-height: var(--line-height-normal);
+  letter-spacing: 0.01em;
+}
+.markdown-preview-view .markdown-preview-sizer,
+.markdown-source-view.mod-cm6 .cm-sizer { max-width: var(--file-line-width); margin-inline: auto; }
+.markdown-rendered p { margin-block: 0 var(--p-spacing); }
+.markdown-rendered h1, .markdown-rendered h2, .markdown-rendered h3 { margin-block: 1.4em 0.5em; }
+
+/* ---------- links: thick underline for easy tracking ---------- */
+a.internal-link, a.external-link, .cm-link, .cm-url {
+  text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.2em;
+}
+a.internal-link { color: var(--link-color); }
+a.internal-link:hover { color: var(--link-color-hover); }
+a.external-link { color: var(--link-external-color); }
+a.external-link:hover { color: var(--link-external-color-hover); }
+.is-unresolved, a.is-unresolved { color: var(--link-unresolved-color); }
+
+/* ---------- lists and large tasks ---------- */
+.markdown-rendered ul, .markdown-rendered ol { padding-inline-start: var(--list-indent); }
+.markdown-rendered li { margin-block: 0.4em; }
+.markdown-rendered input[type="checkbox"], .task-list-item input[type="checkbox"] {
+  width: var(--checkbox-size); height: var(--checkbox-size);
+  border-radius: var(--checkbox-radius);
+  border: 2px solid var(--background-modifier-border-hover);
+}
+.markdown-rendered input[type="checkbox"]:checked { background: var(--interactive-accent); }
+.markdown-rendered .task-list-item { list-style: none; }
+.markdown-rendered .task-list-item.is-checked { color: var(--text-muted); }
+
+/* ---------- blockquote ---------- */
+.markdown-rendered blockquote {
+  border-inline-start: 4px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+  margin-inline: 0; padding: 0.6em 1em; font-size: 1em;
+}
+
+/* ---------- callouts with big titles and targets ---------- */
+.callout {
+  border-radius: var(--callout-radius);
+  border: var(--callout-border-width) solid var(--background-modifier-border);
+  background: var(--background-secondary);
+  mix-blend-mode: normal;
+}
+.callout-title { font-weight: 700; font-size: var(--callout-title-size); }
+
+/* ---------- tables with roomy cells ---------- */
+.markdown-rendered table { border-collapse: collapse; width: 100%; font-size: var(--table-text-size); line-height: var(--table-line-height); }
+.markdown-rendered th, .markdown-rendered td { border: 1px solid var(--background-modifier-border); padding: 0.5em 0.75em; }
+.markdown-rendered thead th { background: var(--background-secondary); font-weight: 700; }
+
+/* ---------- code ---------- */
+.markdown-rendered code { font-size: var(--code-size); }
+.markdown-rendered :not(pre) > code, .cm-inline-code {
+  background: var(--code-background); border-radius: var(--radius-s);
+  padding: 0.1em 0.4em; color: var(--code-normal);
+}
+.markdown-rendered pre, .HyperMD-codeblock {
+  background: var(--code-background); border-radius: var(--radius-m);
+  border: 1px solid var(--background-modifier-border); line-height: 1.6;
+}
+.markdown-rendered pre code { background: transparent; }
+
+/* ---------- tags and rules ---------- */
+.tag, a.tag {
+  background: var(--tag-background); color: var(--tag-color);
+  border-radius: var(--tag-radius); padding: 0.1em 0.55em; font-size: var(--tag-size);
+}
+a.tag:hover { background: var(--tag-background-hover); }
+.markdown-rendered hr { border: none; border-top: var(--divider-width) solid var(--divider-color); }
+
+/* ---------- search ---------- */
+.search-result { border-bottom: 1px solid var(--divider-color); }
+.search-result-file-title { font-weight: 700; color: var(--text-normal); }
+.search-result-file-matched-text { background: var(--text-highlight-bg); }
+
+/* ---------- settings and modals: large controls ---------- */
+.modal, .prompt { border-radius: var(--radius-m); }
+.setting-item { border-top: 1px solid var(--divider-color); padding-block: 0.9em; }
+.setting-item-name { font-weight: 700; }
+.setting-item-description { color: var(--text-muted); }
+.vertical-tab-nav-item { padding-block: 0.5em; }
+.vertical-tab-nav-item.is-active { color: var(--text-accent); font-weight: 700; }
+input[type="text"], input[type="search"], textarea, select {
+  border-radius: var(--radius-s);
+  border: 2px solid var(--background-modifier-border);
+  padding-block: 0.4em;
+}
+
+/* ---------- tabs ---------- */
+.workspace-tab-header { border-radius: var(--tab-radius); padding-block: 0.2em; }
+.workspace-tab-header.is-active .workspace-tab-header-inner-title { color: var(--tab-text-color-active); font-weight: 700; }
+
+/* ---------- navigation: large row targets ---------- */
+.nav-file-title, .nav-folder-title {
+  border-radius: var(--radius-s); color: var(--nav-item-color);
+  min-height: 2.2em; padding-block: 0.28em;
+}
+.nav-file-title:hover, .nav-folder-title:hover { background: var(--nav-item-background-hover); }
+.nav-file-title.is-active { background: var(--nav-item-background-active); color: var(--nav-item-color-active); font-weight: 700; }
+
+/* ---------- status bar, scrollbars, selection, focus ---------- */
+.status-bar { background: var(--background-secondary); color: var(--text-muted); }
+::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb-bg); border-radius: 7px; }
+::selection { background: var(--text-selection); }
+:focus-visible {
+  outline: 3px solid var(--background-modifier-border-focus);
+  outline-offset: 3px;
+  border-radius: var(--radius-s);
+}
+
+@media (max-width: 640px) {
+  .markdown-preview-view .markdown-preview-sizer,
+  .markdown-source-view.mod-cm6 .cm-sizer { padding-inline: 1.1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
